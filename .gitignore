@@ -1,19 +1,28 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# 产物缓存（图片/视频文件与调用结果，按参数哈希落盘）
+state/cache/
 
-# Distribution / packaging
-dist/
-build/
-*.egg-info/
-
-# Env
-venv/
+# key 绝不落盘：任何可能的密钥痕迹全拦
+*.key
+*.pem
 .env
-.venv
+.env.*
 
-# IDE
-.idea/
-.vscode/
-*.swp
+# Python
+__pycache__/
+*.pyc
+
+# 系统杂物
+Thumbs.db
+.DS_Store
+
+# benchmark 生成产物（可由 benchmark/ 脚本复现，不入库）
+benchmark/benchmark_cases.jsonl
+benchmark/benchmark_full.jsonl
+benchmark/*_summary.json
+benchmark/live_call_manifest.json
+benchmark/live_calls_*.json
+benchmark/live_cache/
+benchmark/run_*.txt
+
+# selftest 结果落盘
+tests/selftest_*.json
